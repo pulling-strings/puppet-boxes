@@ -1,0 +1,3 @@
+#!/bin/sh
+mkdir /var/log/nginx/
+/usr/sbin/nginx -g "daemon off;" -c /etc/nginx/nginx.conf

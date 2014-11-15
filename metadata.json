@@ -1,0 +1,14 @@
+{
+  "name": "puppet-boxes",
+  "version": "0.1.0",
+  "author": "narkisr",
+  "summary": "A simple nginx serving opsk sandboxes",
+  "license": "Apache 2.0",
+  "source": "git@github.com:pulling-strings/puppet-boxes.git",
+  "project_page": "https://github.com/pulling-strings/puppet-boxes",
+  "issues_url": "https://github.com/pulling-strings/puppet-boxes",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
