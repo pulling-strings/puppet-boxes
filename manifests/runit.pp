@@ -11,7 +11,7 @@ class boxes::runit {
   file { '/etc/service/nginx/run':
     ensure => file,
     mode   => 'u+x',
-    source => 'puppet:///modules/kibana3/nginx_run',
+    source => 'puppet:///modules/boxes/nginx_run',
     owner  => root,
     group  => root,
   }
