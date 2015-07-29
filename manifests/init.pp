@@ -1,25 +1,14 @@
 # Setting up an nginx based sandbox serving machine
-class boxes(
-  $keys = []
-){
-  class {'::nginx': }
+class boxes($keys = []){
+
+  include ::boxes::nginx
 
   file{'/var/boxes':
     ensure => directory,
-  } ->
-
-  nginx::resource::vhost { $::hostname:
-    ensure   => present,
-    www_root => '/var/boxes/',
-  }
-
-  file{'/etc/nginx/conf.d/default.conf':
-    ensure  => absent
-  } ~> Service['nginx']
+  } -> Class[::Boxes::Nginx]
 
   if($::virtual == 'docker'){
     include runit
-
   }
 
   if($keys != []){
