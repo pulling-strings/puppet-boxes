@@ -2,7 +2,8 @@
 class boxes::nginx(
   $certdir = '/etc/nginx/ssl',
   $key = "${::fqdn}.key",
-  $crt = "${::fqdn}.crt"
+  $crt = "${::fqdn}.crt",
+  $password = 'foo'
 ) {
   
   file{$certdir:
@@ -43,5 +44,14 @@ class boxes::nginx(
     ensure => absent
   } ~> Service['nginx']
 
+  package{'apache2-utils':
+    ensure  => present
+  } ->
+
+  exec{'htpasswd':
+    command => "htpasswd -b -c /etc/nginx/.htpasswd admin ${password}",
+    user    => 'root',
+    path    => ['/usr/bin','/bin',]
+  }
   
 }
