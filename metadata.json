@@ -8,7 +8,8 @@
   "project_page": "https://github.com/pulling-strings/puppet-boxes",
   "issues_url": "https://github.com/pulling-strings/puppet-boxes",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"attachmentgenie-ufw","version_requirement":">= 2.0.0"}
   ]
 }
 
