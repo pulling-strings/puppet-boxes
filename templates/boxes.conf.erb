@@ -7,8 +7,8 @@ server {
   listen 443;
   server_name <%= @fqdn%>;
 
-  access_log /var/log/nginx/artifactory-https.access.log;
-  error_log /var/log/nginx/artifactory-https.error.log;
+  access_log /var/log/nginx/boxes-https.access.log;
+  error_log /var/log/nginx/boxes-https.error.log;
   
   ssl on;
   ssl_certificate <%=@certdir%>/<%=@crt %>;
