@@ -43,17 +43,5 @@ class boxes::nginx(
     ensure => absent
   } ~> Service['nginx']
 
-  include ufw
-
-  ufw::allow { 'allow-80':
-    from => 'any',
-    port => 80,
-    ip   => 'any'
-  }
-
-  ufw::allow { 'allow-https-from-all':
-    from => 'any',
-    port => 443,
-    ip   => 'any'
-  }
+  
 }

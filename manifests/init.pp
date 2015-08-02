@@ -2,6 +2,7 @@
 class boxes($keys = []){
 
   include ::boxes::nginx
+  include ::boxes::ports
 
   file{'/var/boxes':
     ensure => directory,
