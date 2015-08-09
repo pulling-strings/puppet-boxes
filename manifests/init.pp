@@ -1,5 +1,8 @@
 # Setting up an nginx based sandbox serving machine
-class boxes($keys = []){
+class boxes(
+  $keys = [],
+  $user = 'root'
+){
 
   include ::boxes::nginx
   include ::boxes::ports
@@ -13,14 +16,12 @@ class boxes($keys = []){
   }
 
   if($keys != []){
-    file{'/root/.ssh/':
-      ensure => directory,
-    } -> Ssh_Authorized_Key<||>
-
-    $defaults = {
-      user => 'root'
+    if $user == 'root' {
+      file{'/root/.ssh/':
+        ensure => directory,
+      } -> Ssh_Authorized_Key<||>
     }
       
-    create_resources(ssh_authorized_key, $keys, $defaults)
+    create_resources(ssh_authorized_key, $keys, {user => $user})
   }
 }
